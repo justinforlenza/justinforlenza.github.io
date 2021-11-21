@@ -9,7 +9,10 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.16"
+    "@fontsource/space-mono": "^4.5.0",
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "vue": "^3.2.16",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",

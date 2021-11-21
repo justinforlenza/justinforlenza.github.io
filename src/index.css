@@ -1,3 +1,84 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply font-mono text-white bg-black;
+}
+
+#app {
+    @apply max-w-xl lg:max-w-2xl mx-auto mt-5;
+}
+
+main {
+    @apply py-5
+}
+
+footer {
+    @apply flex flex-row-reverse border-dotted py-2;
+    border-top: 1px dashed;
+}
+footer > div {
+    @apply ml-2
+}
+
+a:not(.rambling) {
+    @apply text-blue-600 hover:bg-blue-600 hover:text-white px-0.5
+}
+
+nav {
+    @apply flex py-3 justify-between;
+    border-top: 1px dashed;
+    border-bottom: 1px dashed;
+}
+
+nav a {
+    @apply ml-3 hover:bg-white hover:text-black text-white !important
+}
+
+main > *:not(:last-child) {
+    @apply mb-3
+}
+
+
+h1 {
+    @apply text-2xl mb-2.5
+}
+h1 > a{
+    @apply hover:bg-white hover:text-black text-white p-0 !important
+}
+h2 {
+    @apply text-xl
+}
+
+ul {
+    @apply list-disc
+}
+
+ul > li {
+    @apply ml-16
+}
+
+.rambling {
+    @apply block py-3
+}
+
+.rambling:first-child {
+    border-top: 1px dashed;
+}
+
+.rambling:not(:last-child) {
+    border-bottom: 1px dashed;
+}
+
+.rambling > .title {
+    @apply text-xl
+}
+
+.rambling:hover > .title {
+    @apply bg-blue-600 text-white
+}
+
+.rambling > .date {
+    @apply text-sm mb-2.5 text-gray-300
+}

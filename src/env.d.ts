@@ -6,3 +6,27 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+
+interface GraphQLRamblingResponse {
+  ramblingsConnection: {
+    aggregate: {
+      count: number
+    }
+    edges: Array<{
+      node: Rambling
+    }>
+    pageInfo: {
+      startCursor: string
+      endCursor: string
+    }
+  }
+}
+
+interface Rambling {
+  slug: string
+  title: string
+  publishedAt: string
+  snippet: string
+  content: string
+}

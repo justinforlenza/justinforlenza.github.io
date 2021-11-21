@@ -3,11 +3,23 @@
 </script>
 
 <template>
-  <h1>Hello world</h1>
+  <nav>
+    <span>justin_forlenza</span>
+    <div class="nav-links">
+      <router-link to="/home">/home</router-link>
+      <router-link to="/projects">/projects</router-link>
+      <router-link to="/ramblings">/ramblings</router-link>
+    </div>
+  </nav>
+  <main>
+    <router-view />
+  </main>
+  <footer>
+    <div>
+      <a href="https://twitter.com/JustinForNYC" target="_blank">Twitter</a>
+    </div>
+    <div>
+      <a href="https://github.com/justinforlenza" target="_blank">GitHub</a>
+    </div>
+  </footer>
 </template>
-
-<style>
-h1 {
-  @apply text-5xl
-}
-</style>
