@@ -36,10 +36,6 @@ nav a {
     @apply ml-3 hover:bg-white hover:text-black text-white !important
 }
 
-main > *:not(:last-child) {
-    @apply mb-3
-}
-
 
 h1 {
     @apply text-2xl mb-2.5
@@ -48,11 +44,17 @@ h1 > a{
     @apply hover:bg-white hover:text-black text-white p-0 !important
 }
 h2 {
-    @apply text-xl
+    @apply text-xl mb-2.5
+}
+h3, h4, h5, h6 {
+    @apply text-lg mb-2.5
+}
+p {
+    @apply mb-2.5
 }
 
 ul {
-    @apply list-disc
+    @apply list-disc mb-2.5
 }
 
 ul > li {
@@ -82,3 +84,5 @@ ul > li {
 .rambling > .date {
     @apply text-sm mb-2.5 text-gray-300
 }
+
+
