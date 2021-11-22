@@ -14,15 +14,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/home',
-      beforeEnter: (to, from, next) => {
-        if (sessionStorage.redirect) {
-          const redirect = sessionStorage.redirect
-          delete sessionStorage.redirect
-          next(redirect)
-        }
-        next()
-      }
+      redirect: '/home'
     },
     {
       path: '/home',
