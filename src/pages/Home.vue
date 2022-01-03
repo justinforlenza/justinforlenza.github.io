@@ -16,7 +16,7 @@
   <ul>
     <li>HTML/CSS, SCSS, PostCSS, Bootstrap, Tailwind, MaterialUI</li>
     <li>JavaScript, React, Vue, Next, Nuxt</li>
-    <li>Python, GoLang, Node.js</li>
+    <li>Python, GoLang, Node.js, Rust</li>
     <li>SQL, MongoDB, Prisma, NoSQL, Elasticsearch</li>
     <li>Google Cloud, Firebase, AWS, Docker, Kubernetes, Linux</li>
     <li>Jira, GitHub, Trello</li>
