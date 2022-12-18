@@ -16,6 +16,9 @@
   </main>
   <footer>
     <div>
+      <a rel="me" href="https://universeodon.com/@justinf" target="_blank">Mastodon</a>
+    </div>
+    <div>
       <a href="https://twitter.com/JustinForNYC" target="_blank">Twitter</a>
     </div>
     <div>
