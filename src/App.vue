@@ -8,7 +8,7 @@
     <div class="nav-links">
       <router-link to="/home">/home</router-link>
       <router-link to="/projects">/projects</router-link>
-      <router-link to="/ramblings">/ramblings</router-link>
+      <!-- <router-link to="/ramblings">/ramblings</router-link> -->
     </div>
   </nav>
   <main>
