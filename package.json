@@ -10,13 +10,17 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/alpinejs": "^0.4.0",
     "@astrojs/check": "^0.7.0",
-    "@unocss/reset": "^0.60.2",
-    "astro": "^4.8.5",
-    "typescript": "^5.4.5"
+    "@unocss/reset": "^0.60.3",
+    "alpinejs": "^3.14.0",
+    "astro": "^4.8.6"
   },
   "packageManager": "pnpm@9.1.1",
   "devDependencies": {
-    "unocss": "^0.60.2"
+    "@types/alpinejs": "^3.13.10",
+    "@unocss/transformer-variant-group": "^0.60.3",
+    "typescript": "^5.4.5",
+    "unocss": "^0.60.3"
   }
 }
