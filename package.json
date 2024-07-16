@@ -11,16 +11,18 @@
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.0",
-    "@astrojs/check": "^0.7.0",
-    "@unocss/reset": "^0.60.3",
-    "alpinejs": "^3.14.0",
-    "astro": "^4.8.6"
+    "@astrojs/check": "^0.8.1",
+    "@fontsource-variable/quicksand": "^5.0.18",
+    "@fontsource-variable/rubik": "^5.0.22",
+    "@unocss/reset": "^0.61.3",
+    "alpinejs": "^3.14.1",
+    "astro": "^4.11.5"
   },
-  "packageManager": "pnpm@9.1.1",
+  "packageManager": "pnpm@9.5.0",
   "devDependencies": {
     "@types/alpinejs": "^3.13.10",
-    "@unocss/transformer-variant-group": "^0.60.3",
-    "typescript": "^5.4.5",
-    "unocss": "^0.60.3"
+    "@unocss/transformer-variant-group": "^0.61.3",
+    "typescript": "^5.5.3",
+    "unocss": "^0.61.3"
   }
 }
