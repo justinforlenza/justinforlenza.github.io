@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content'
+import Main from '../layouts/main.astro'
+
+const featured = await getCollection(
+  'projects',
+  ({ data }) => data.status === 'active'
+)
+const archived = await getCollection(
+  'projects',
+  ({ data }) => data.status === 'archived'
+)
+---
+
+<Main title="projects">
+  <div slot="header">
+    <h1>projects <span class="blink-cursor"></span></h1>
+    <p>
+      things I've built &middot; teaching tools, desktop utilities, and the odd
+      experiment
+    </p>
+  </div>
+
+  {featured.map(({ data }) => (
+    <section>
+      <h2>{data.name}</h2>
+      <p>{data.description}</p>
+      <dl>
+        <dt>tech</dt>
+        <dd>{data.tech.join(" · ")}</dd>
+        <dt>status</dt>
+        <dd>{data.status}</dd>
+      </dl>
+      <a href={data.url} target="_blank" rel="noopener noreferrer">source →</a>
+    </section>
+  ))}
+
+   {archived.length > 0 && (
+    <section class="wide">
+      <h2>archive</h2>
+      <p>Older or retired work, kept around for reference:</p>
+      <dl>
+        {archived.map(({ data }) => <>
+            <dt>{data.name}</dt>
+            <dd>{data.description} ({data.tech.join(" · ")})</dd>
+        </>)}
+      </dl>
+    </section>
+  )}
+</Main>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    > p {
+      flex: 1;
+    }
+  }
+</style>

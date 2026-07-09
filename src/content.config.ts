@@ -4,6 +4,8 @@ import { file } from 'astro/loaders'
 import {
   ExperienceJSON,
   ExperienceSchema,
+  ProjectJSON,
+  ProjectSchema,
   SocialJSON,
   SocialSchema,
 } from './schema'
@@ -38,4 +40,21 @@ const experience = defineCollection({
   schema: ExperienceSchema,
 })
 
-export const collections = { socials, experience }
+const projects = defineCollection({
+  loader: file('src/data/projects.json', {
+    parser: async (raw) => {
+      try {
+        const parsed = JSON.parse(raw)
+        const validated = ProjectJSON.parse(parsed)
+
+        return validated.records.map((r, i) => ({ ...r, id: i }))
+      } catch (e) {
+        console.debug(e)
+        throw new Error('')
+      }
+    },
+  }),
+  schema: ProjectSchema,
+})
+
+export const collections = { socials, experience, projects }

@@ -25,3 +25,18 @@ export const ExperienceJSON = z.object({
 })
 
 export type Experience = z.infer<typeof ExperienceSchema>
+
+export const ProjectSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  tech: z.array(z.string()),
+  status: z.enum(['active', 'archived']),
+  url: z.url(),
+})
+
+export const ProjectJSON = z.object({
+  $schema: z.string(),
+  records: ProjectSchema.array(),
+})
+
+export type Project = z.infer<typeof ProjectSchema>
