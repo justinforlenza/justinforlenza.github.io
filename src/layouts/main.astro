@@ -40,6 +40,13 @@ const logo = `
     <title>Justin Forlenza</title>
   </head>
   <body>
+  <nav>
+    <a href="/">about</a>
+    <a href="/projects">projects</a>
+    <!-- <a href="#experience">experience</a> -->
+    <!-- <a href="/writing">writing</a> -->
+    <a href="/contact">contact</a>
+  </nav>
     <header>
       <slot name="header">
         <pre aria-hidden="true">{logo}</pre>
@@ -88,7 +95,7 @@ pre {
   border-radius: 0;
   overflow: visible;
   line-height: 1;
-  font-size: clamp(0.45rem, 0.38rem + 0.5vw, 0.62rem);
+  font-size: 1ch;
   color: var(--title);
   white-space: pre;
   user-select: none;
