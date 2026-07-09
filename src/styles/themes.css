@@ -1,4 +1,4 @@
-[data-theme='one-dark-two'] {
+[data-theme="one-dark-two"] {
   --ansi-0: #1d1f23;
   --ansi-1: #e27881;
   --ansi-2: #98c379;
@@ -22,7 +22,7 @@
 }
 
 /* Gruvbox Dark Hard */
-[data-theme='gruvbox'] {
+[data-theme="gruvbox"] {
   --ansi-0: #1d2021;
   --ansi-1: #cc241d;
   --ansi-2: #98971a;
@@ -46,7 +46,7 @@
 }
 
 /* Ayu Light */
-[data-theme='ayu-light'] {
+[data-theme="ayu-light"] {
   --ansi-0: #000000;
   --ansi-1: #ea6c6d;
   --ansi-2: #6cbf43;

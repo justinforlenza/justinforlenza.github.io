@@ -54,7 +54,7 @@ ul {
     position: relative;
     color: var(--body);
     &::before {
-      content: '›';
+      content: "›";
       position: absolute;
       left: -1.2rem;
       color: var(--marker);
@@ -160,7 +160,7 @@ summary {
   cursor: pointer;
   color: var(--body);
   &::before {
-    content: '▸';
+    content: "▸";
     display: inline-block;
     width: 1.3em;
     color: var(--muted);
@@ -176,7 +176,7 @@ summary {
   }
 }
 details[open] > summary::before {
-  content: '▾';
+  content: "▾";
 }
 details :where(ul, ol, p) {
   margin-left: 1.5em;
@@ -184,7 +184,7 @@ details :where(ul, ol, p) {
 }
 
 .blink-cursor::after {
-  content: '';
+  content: "";
   display: inline-block;
   width: 0.55ch;
   height: 1.05em;

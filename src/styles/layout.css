@@ -27,7 +27,7 @@ nav {
   & a {
     color: var(--foreground);
     &::before {
-      content: '» ';
+      content: "» ";
       color: var(--muted);
     }
     &:hover,
@@ -63,11 +63,11 @@ section {
     color: var(--title);
     font-size: 0.9em;
     ::before {
-      content: '┤ ';
+      content: "┤ ";
       color: var(--line-strong);
     }
     ::after {
-      content: ' ├';
+      content: " ├";
       color: var(--line-strong);
     }
   }

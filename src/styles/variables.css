@@ -24,13 +24,31 @@
   --muted: var(--br-black); /* taglines, timestamps, comments   */
 
   /* Structure derived from fg/bg, so it fits any scheme without tuning */
-  --line: color-mix(in oklab, var(--foreground, #e6e6e6) 16%, var(--background, #21252b));
-  --line-strong: color-mix(in oklab, var(--foreground, #e6e6e6) 34%, var(--background, #21252b));
-  --raised: color-mix(in oklab, var(--foreground, #e6e6e6) 7%, var(--background, #21252b));
-  --body: color-mix(in oklab, var(--foreground, #e6e6e6) 84%, var(--background, #21252b));
+  --line: color-mix(
+    in oklab,
+    var(--foreground, #e6e6e6) 16%,
+    var(--background, #21252b)
+  );
+  --line-strong: color-mix(
+    in oklab,
+    var(--foreground, #e6e6e6) 34%,
+    var(--background, #21252b)
+  );
+  --raised: color-mix(
+    in oklab,
+    var(--foreground, #e6e6e6) 7%,
+    var(--background, #21252b)
+  );
+  --body: color-mix(
+    in oklab,
+    var(--foreground, #e6e6e6) 84%,
+    var(--background, #21252b)
+  );
 
   /* Layout tokens */
-  --mono: ui-monospace, 'Cascadia Code', 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --mono:
+    ui-monospace, "Cascadia Code", "JetBrains Mono", "SF Mono", Menlo, Consolas,
+    monospace;
   --pad: clamp(0.9rem, 0.55rem + 1.4vw, 1.4rem);
   --radius: 6px;
   --maxw: 62rem;
