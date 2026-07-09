@@ -25,7 +25,7 @@ import Main from '../layouts/main.astro'
       <a href="mailto:justin@justinforlenza.dev">justin@justinforlenza.dev</a>
       &nbsp;directly.
     </p>
-    <form id="contact-me" autocomplete="off" novalidate>
+    <form id="contact-me" novalidate>
       <input
         type="hidden"
         name="access_key"
@@ -38,6 +38,7 @@ import Main from '../layouts/main.astro'
             aria-describedby="name-error"
             type="text"
             name="name"
+            autocomplete="name"
             placeholder="jane doe"
             required
           >
@@ -51,6 +52,7 @@ import Main from '../layouts/main.astro'
           <input
             type="email"
             name="email"
+            autocomplete="email"
             placeholder="jdoe@example.com"
             required
             aria-describedby="email-error"
@@ -94,7 +96,7 @@ import Main from '../layouts/main.astro'
         data-size="invisible"
       />
     </form>
-    <div id="alert" class="banner" hidden>
+    <div id="alert" class="banner" role="status" aria-live="polite" hidden>
       <span class="title" />
       <div class="msg" />
     </div>
@@ -126,6 +128,7 @@ enum HCaptchaError {
 
 const formBanner = document.getElementById('alert')
 const form = document.getElementById('contact-me')
+const submitButton = document.querySelector('form button')
 
 function isErrorCode(error: unknown): error is HCaptchaError {
   return (
@@ -171,6 +174,14 @@ function validateForm(form: HTMLFormElement) {
   return valid
 }
 
+function setLoading(state: boolean) {
+  if (form !== null && submitButton instanceof HTMLButtonElement) {
+    submitButton.dataset.loading = JSON.stringify(state)
+    submitButton.disabled = state
+    form.setAttribute('aria-busy', JSON.stringify(state))
+  }
+}
+
 function showBanner({
   type,
   msg,
@@ -196,10 +207,14 @@ if (form instanceof HTMLFormElement) {
   form.addEventListener('submit', async (event) => {
     event.preventDefault()
     try {
-      form.querySelector('button')!.dataset.loading = 'true'
+      setLoading(true)
       hideBanner()
 
-      if (!validateForm(form)) return
+      if (!validateForm(form)) {
+        form.querySelector<HTMLInputElement>('[aria-invalid="true"]')?.focus()
+        setLoading(false)
+        return
+      }
 
       await hcaptcha.execute(undefined, { async: true })
 
@@ -207,7 +222,7 @@ if (form instanceof HTMLFormElement) {
 
       const body = new FormData(form)
 
-      // delete recaptcha for web3form
+      // delete recaptcha value for web3form
       body.delete('g-recaptcha-response')
 
       await fetch('https://api.web3forms.com/submit', {
@@ -262,8 +277,7 @@ if (form instanceof HTMLFormElement) {
         })
       }
     }
-
-    form.querySelector('button')!.dataset.loading = 'false'
+    setLoading(false)
   })
 } else {
   console.error('Form element not found and/or is not an HTMLFormElement.')
