@@ -50,6 +50,10 @@ main {
   gap: var(--pad);
   align-items: start;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+
+  > .wide {
+    grid-column: 1 / -1;
+  }
 }
 
 section {
@@ -77,11 +81,8 @@ section {
   > :nth-child(2) {
     margin-top: 0;
   }
-  &.wide {
-    grid-column: 1 / -1;
-  }
 
-  a:last-child {
+  > a:last-child {
     display: block;
     text-align: right;
     margin-top: 0.5rem;

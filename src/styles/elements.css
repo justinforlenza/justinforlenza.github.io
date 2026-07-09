@@ -190,3 +190,44 @@ details :where(ul, ol, p) {
   padding: 0 0.4em;
   font-size: 0.85em;
 }
+
+.banner:not([hidden]) {
+  --color: var(--br-blue);
+  --symbol: "i";
+
+  padding: 0.6rem var(--pad);
+  border: 1px solid var(--color);
+  border-radius: var(--radius);
+  color: var(--color);
+  background: color-mix(in oklab, var(--color) 10%, var(--background));
+
+  display: grid;
+  grid-template-columns: 4ch 1fr;
+
+  > .title {
+    font-weight: 900;
+  }
+
+  > :is(.title, .msg) {
+    grid-column: 2;
+  }
+
+  &::before {
+    content: "[" var(--symbol) "]";
+    margin-right: 1ch;
+    font-weight: 900;
+  }
+
+  &.error {
+    --color: var(--br-red);
+    --symbol: "\2716"; /* ✖ */
+  }
+  &.good {
+    --color: var(--br-green);
+    --symbol: "\2714"; /* ✔ */
+  }
+  &.warn {
+    --color: var(--br-yellow);
+    --symbol: "\9888"; /* ⚠ */
+  }
+}

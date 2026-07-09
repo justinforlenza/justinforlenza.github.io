@@ -1,4 +1,4 @@
-:focus-visible {
+:focus-visible:not(:is(input, textarea)) {
   outline: 2px solid var(--title);
   outline-offset: 2px;
 }
