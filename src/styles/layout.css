@@ -1,6 +1,3 @@
-/* layout.css — the structural pieces: header card, nav, panel grid,
-   notched section titles, status-bar footer. All by element, no classes. */
-
 header {
   container-type: inline-size;
   border: 1px solid var(--line);
@@ -16,6 +13,17 @@ header {
   }
   dl {
     margin-top: 0.85rem;
+  }
+}
+
+header:has(> pre) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--pad);
+
+  & > :last-child {
+    flex: 1 1 12rem;
   }
 }
 
@@ -103,8 +111,5 @@ footer {
   dl {
     grid-template-columns: 1fr;
     gap: 0.1rem;
-  }
-  dl dt {
-    margin-top: 0.4rem;
   }
 }

@@ -4,6 +4,30 @@ import '../styles/_index.css'
 import { getCollection } from 'astro:content'
 
 const socials = await getCollection('socials')
+
+const logo = `
+               ##
+             ####
+           #####
+          #####
+         ####
+         ###  #
+       # ### ##
+      ## ######
+      ## ######
+     ### #####
+     ### ###
+     ### ###
+     ### ###
+     ### ##
+     ### ##
+     ### #
+     ###
+    ###
+  #####
+ #####
+####
+##`
 ---
 
 <html lang="en" data-theme="one-dark-two">
@@ -18,25 +42,28 @@ const socials = await getCollection('socials')
   <body>
     <header>
       <slot name="header">
-        <h1>Justin Forlenza <span class="blink-cursor"></span></h1>
-        <p>full-stack developer · educator · new york city</p>
-        <dl>
-          <dt>role</dt>
-          <dd>
-            full-stack instructor @
-            <a target="_blank" href="https://brooklynsteamcenter.org">
-              Brooklyn STEAM Center
-            </a>
-          </dd>
-          <dt>loc</dt>
-          <dd>new york city</dd>
-          <dt>email</dt>
-          <dd>
-            <a href="mailto:justin@justinforlenza.dev">
-              justin@justinforlenza.dev
-            </a>
-          </dd>
-        </dl>
+        <pre aria-hidden="true">{logo}</pre>
+        <div>
+          <h1>Justin Forlenza <span class="blink-cursor"></span></h1>
+          <p>full-stack developer &middot; educator</p>
+          <dl>
+            <dt>role</dt>
+            <dd>
+              full-stack instructor @&nbsp;
+              <a target="_blank" href="https://brooklynsteamcenter.org">
+                Brooklyn STEAM Center
+              </a>
+            </dd>
+            <dt>loc</dt>
+            <dd>new york city</dd>
+            <dt>email</dt>
+            <dd>
+              <a href="mailto:justin@justinforlenza.dev">
+                justin@justinforlenza.dev
+              </a>
+            </dd>
+          </dl>
+        </div>
       </slot>
     </header>
     <main>
@@ -52,3 +79,29 @@ const socials = await getCollection('socials')
     </footer>
   </body>
 </html>
+
+<style>
+pre {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  line-height: 1;
+  font-size: clamp(0.45rem, 0.38rem + 0.5vw, 0.62rem);
+  color: var(--title);
+  white-space: pre;
+  user-select: none;
+}
+
+@media (max-width: 36rem) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+
+    > pre {
+      align-self: center;
+    }
+  }
+}
+</style>
