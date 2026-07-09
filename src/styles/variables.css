@@ -1,0 +1,39 @@
+:root {
+  /* Readable aliases for the numbered ANSI slots a theme provides */
+  --black: var(--ansi-0, #1d1f23);
+  --br-black: var(--ansi-8, #4a505a);
+  --red: var(--ansi-1, #e27881);
+  --br-red: var(--ansi-9, #e68991);
+  --green: var(--ansi-2, #98c379);
+  --br-green: var(--ansi-10, #a8cc8e);
+  --yellow: var(--ansi-3, #eac786);
+  --br-yellow: var(--ansi-11, #edcf97);
+  --blue: var(--ansi-4, #71b9f4);
+  --br-blue: var(--ansi-12, #8dc7f6);
+  --magenta: var(--ansi-5, #c88bda);
+  --br-magenta: var(--ansi-13, #d3a2e2);
+  --cyan: var(--ansi-6, #62bac6);
+  --br-cyan: var(--ansi-14, #78c4ce);
+  --white: var(--ansi-7, #c9ccd3);
+  --br-white: var(--ansi-15, #e6e6e6);
+
+  /* ROLES — the only lines you touch to re-skin every theme at once. */
+  --title: var(--br-cyan); /* headings, panel titles, the name */
+  --marker: var(--br-yellow); /* list bullets, dt keys, accents   */
+  --link: var(--br-blue); /* anchors                          */
+  --muted: var(--br-black); /* taglines, timestamps, comments   */
+
+  /* Structure derived from fg/bg, so it fits any scheme without tuning */
+  --line: color-mix(in oklab, var(--foreground, #e6e6e6) 16%, var(--background, #21252b));
+  --line-strong: color-mix(in oklab, var(--foreground, #e6e6e6) 34%, var(--background, #21252b));
+  --raised: color-mix(in oklab, var(--foreground, #e6e6e6) 7%, var(--background, #21252b));
+  --body: color-mix(in oklab, var(--foreground, #e6e6e6) 84%, var(--background, #21252b));
+
+  /* Layout tokens */
+  --mono: ui-monospace, 'Cascadia Code', 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --pad: clamp(0.9rem, 0.55rem + 1.4vw, 1.4rem);
+  --radius: 6px;
+  --maxw: 62rem;
+
+  color-scheme: dark light;
+}
