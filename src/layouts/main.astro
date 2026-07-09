@@ -1,0 +1,50 @@
+---
+import "../styles/_index.css"
+
+type Social = {
+	name: string;
+	url: string;
+}
+
+const socials: Social[] = [
+	{name: "github", url: "https://github.com/justinforlenza"},
+	{name: "linkedin", url: "https://www.linkedin.com/in/justinforlenza/"},
+	{name: "blueksy", url: "https://bsky.app/profile/justinforlenza.dev"},
+	{name: "mastodon", url: "https://mastodon.social/@justinf"},
+]
+---
+
+<html lang="en" data-theme="one-dark-two">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Justin Forlenza</title>
+	</head>
+  <body>
+    <header>
+      <slot name="header">
+        <h1>Justin Forlenza <span class="blink-cursor"></span></h1>
+        <p>full-stack developer · educator · new york city</p>
+        <dl>
+          <dt>role</dt>  <dd>full-stack instructor @ <a target="_blank" href="https://brooklynsteamcenter.org">Brooklyn STEAM Center</a></dd>
+          <dt>loc</dt>   <dd>new york city</dd>
+          <dt>email</dt> <dd><a href="mailto:justin@justinforlenza.dev">justin@justinforlenza.dev</a></dd>
+        </dl>
+  </slot>
+    </header>
+  <main>
+    <slot />
+  </main>
+
+  <footer>
+    {socials.map((social) => (
+			<a href={social.url} target="_blank" rel="noopener noreferrer">
+				{social.name}
+			</a>
+		))}
+  </footer>
+  </body>
+</html>

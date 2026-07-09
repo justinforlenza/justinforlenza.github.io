@@ -1,28 +1,7 @@
 ---
-import "../styles/_index.css";
+import Main from '../layouts/main.astro';
 ---
-
-<html lang="en" data-theme="one-dark-two">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<header>
-    <h1>Justin Forlenza <span class="blink-cursor"></span></h1>
-    <p>full-stack developer · educator · new york city</p>
-    <dl>
-      <dt>role</dt>  <dd>full-stack instructor @ <a target="_blank" href="https://brooklynsteamcenter.org">Brooklyn STEAM Center</a></dd>
-      <dt>loc</dt>   <dd>new york city</dd>
-			<dt>email</dt> <dd><a href="mailto:justin@justinforlenza.dev">justin@justinforlenza.dev</a></dd>
-    </dl>
-  </header>
- 
-  <main>
+  <Main>
     <section id="about">
       <h2>about</h2>
       <p>Building intuitive solutions to messy problems. I teach full-stack
@@ -49,12 +28,4 @@ import "../styles/_index.css";
         <dt>2025-08</dt> <dd>shipping side projects on a teacher's schedule</dd>
       </dl>
     </section> -->
-	</main>
- 
-  <footer>
-    <a href="https://github.com/justinforlenza">github</a>
-    <a href="#">linkedin</a>
-    <a href="#">mastodon</a>
-  </footer>
-	</body>
-</html>
+	</Main>
