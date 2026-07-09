@@ -1,6 +1,11 @@
 ---
+import { getCollection } from 'astro:content'
 import Experience from '../components/homepage/experience.astro'
 import Main from '../layouts/main.astro'
+
+const posts = await getCollection('posts', ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true
+})
 ---
 
 <Main>
@@ -55,17 +60,24 @@ import Main from '../layouts/main.astro'
         &nbsp;- Home Assistant in your system tray
       </li>
     </ul>
+    <a href="/projects">view more...</a>
   </section>
 
   <Experience />
 
-  <!-- 
-		maybe one day :}
-		<section id="writing" data-wide>
-      <h2>writing</h2>
-      <dl>
-        <dt>2025-11</dt> <dd>teaching python without a dev environment</dd>
-        <dt>2025-08</dt> <dd>shipping side projects on a teacher's schedule</dd>
-      </dl>
-    </section> -->
+  {posts.length > 0 && <section id="ramblings" class="wide">
+    <h2>writing</h2>
+    <dl>
+      {posts.slice(0, 5).map(p => <>
+        <dt>{p.data.published.toISOString().split('T')[0]}</dt> <dd><a href={`/ramblings/${p.id}`}>{p.data.name}</a></dd>
+      </>)}
+    </dl>
+    {posts.length > 5 && <a href="/ramblings">view more...</a>}
+  </section>}
 </Main>
+
+<style>
+dd a {
+  color: unset;
+}
+</style>

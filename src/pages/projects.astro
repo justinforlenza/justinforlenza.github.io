@@ -35,7 +35,7 @@ const archived = await getCollection(
     </section>
   ))}
 
-   {archived.length > 0 && (
+  {archived.length > 0 && (
     <section class="wide">
       <h2>archive</h2>
       <p>Older or retired work, kept around for reference:</p>
@@ -50,11 +50,11 @@ const archived = await getCollection(
 </Main>
 
 <style>
-  section {
-    display: flex;
-    flex-direction: column;
-    > p {
-      flex: 1;
-    }
+section {
+  display: flex;
+  flex-direction: column;
+  > p {
+    flex: 1;
   }
+}
 </style>

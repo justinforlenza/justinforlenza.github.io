@@ -45,7 +45,7 @@ nav {
   }
 }
 
-main {
+main:not(.prose) {
   display: grid;
   gap: var(--pad);
   align-items: start;

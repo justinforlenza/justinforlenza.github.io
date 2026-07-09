@@ -1,9 +1,10 @@
 import { defineCollection } from 'astro:content'
-import { file } from 'astro/loaders'
+import { file, glob } from 'astro/loaders'
 
 import {
   ExperienceJSON,
   ExperienceSchema,
+  PostSchema,
   ProjectJSON,
   ProjectSchema,
   SocialJSON,
@@ -57,4 +58,9 @@ const projects = defineCollection({
   schema: ProjectSchema,
 })
 
-export const collections = { socials, experience, projects }
+const posts = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/data/posts' }),
+  schema: PostSchema,
+})
+
+export const collections = { socials, experience, projects, posts }

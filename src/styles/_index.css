@@ -1,4 +1,4 @@
-@layer theme, variables, base, layout, elements, form, a11y;
+@layer theme, variables, base, layout, elements, form, prose, a11y;
 
 @import url("./themes.css") layer(theme);
 @import url("./variables.css") layer(variables);
@@ -6,4 +6,5 @@
 @import url("./layout.css") layer(layout);
 @import url("./elements.css") layer(elements);
 @import url("./form.css") layer(form);
+@import url("./prose.css") layer(prose);
 @import url("./a11y.css") layer(a11y);

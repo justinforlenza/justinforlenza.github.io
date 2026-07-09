@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content'
+import Main from '../../layouts/main.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts')
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }))
+}
+
+function fmtDate(date: Date) {
+  return date.toISOString().split('T')[0]
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+---
+
+<Main title={post.data.name}>
+  <div slot="header">
+    <h1>{post.data.name} <span class="blink-cursor"></span></h1>
+    <div>
+      {post.data.tags.map(tag => <div class="tag">{tag}</div>)}
+    </div>
+    <small>
+      <time datetime={post.data.published.toISOString()}>
+        {fmtDate(post.data.published)}
+      </time>
+    </small>
+  </div>
+
+  <main slot="main" class="prose">
+    <Content />
+  </main>
+</Main>
+
+<style>
+div:has(> .tag) {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+}
+</style>

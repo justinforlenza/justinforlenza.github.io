@@ -40,3 +40,12 @@ export const ProjectJSON = z.object({
 })
 
 export type Project = z.infer<typeof ProjectSchema>
+
+export const PostSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  tags: z.array(z.string()),
+  published: z.coerce.date(),
+  updated: z.coerce.date().optional(),
+  draft: z.boolean().default(true),
+})
