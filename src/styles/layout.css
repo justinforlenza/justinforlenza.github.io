@@ -1,0 +1,116 @@
+header {
+  container-type: inline-size;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--pad);
+
+  > :first-child {
+    margin-top: 0;
+  }
+  p {
+    color: var(--muted);
+    margin: 0.15rem 0 0;
+  }
+  dl {
+    margin-top: 0.85rem;
+  }
+}
+
+header:has(> pre) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--pad);
+
+  & > :last-child {
+    flex: 1 1 12rem;
+  }
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1.3rem;
+
+  a {
+    color: var(--foreground);
+    &::before {
+      content: "» ";
+      color: var(--muted);
+    }
+    &:hover,
+    &:focus-visible {
+      color: var(--link);
+    }
+  }
+}
+
+main:not(.prose) {
+  display: grid;
+  gap: var(--pad);
+  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+
+  > .wide {
+    grid-column: 1 / -1;
+  }
+}
+
+section {
+  height: 100%;
+
+  container-type: inline-size;
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: calc(var(--pad) + 0.25rem) var(--pad) var(--pad);
+
+  /* first heading → ┤ title ├ notched onto the top border */
+  > :is(h1, h2, h3, h4):first-child {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0.85rem;
+    transform: translateY(-50%);
+    margin: 0;
+    padding-inline: 0.5rem;
+    background: var(--background);
+    color: var(--title);
+    font-size: 0.9em;
+  }
+
+  > :nth-child(2) {
+    margin-top: 0;
+  }
+
+  > a:last-child {
+    display: block;
+    text-align: right;
+    margin-top: 0.5rem;
+  }
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1.3rem;
+  padding: 0.55rem var(--pad);
+  background: var(--raised);
+  border-radius: var(--radius);
+
+  > :first-child {
+    color: var(--title);
+  }
+  a {
+    color: var(--link);
+  }
+}
+
+/* Panels/cards respond to THEIR OWN width, not the viewport: a narrow
+   panel stacks its key/value list even when the window is wide. */
+@container (max-width: 20rem) {
+  dl {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}

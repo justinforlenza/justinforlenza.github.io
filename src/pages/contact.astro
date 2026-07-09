@@ -1,0 +1,285 @@
+---
+import Main from '../layouts/main.astro'
+---
+
+<Main title="contact">
+  <div slot="header">
+    <h1>contact <span class="blink-cursor"></span></h1>
+    <p>let's talk &middot; projects, questions, or just to say hi</p>
+  </div>
+
+  <noscript>
+    <div class="wide error banner">
+      <span class="title">JavaScript Disabled</span>
+      <div class="msg">
+        To prevent spam, this form requires JavaScript to be enabled. Feel free
+        to email me directly instead.
+      </div>
+    </div>
+  </noscript>
+
+  <section class="wide">
+    <h2>send a message</h2>
+    <p>
+      Fill out the form below, or email&nbsp;
+      <a href="mailto:justin@justinforlenza.dev">justin@justinforlenza.dev</a>
+      &nbsp;directly.
+    </p>
+    <form id="contact-me" novalidate>
+      <input
+        type="hidden"
+        name="access_key"
+        value="b078cd99-0f11-4556-acd8-8938b9931d27"
+      >
+      <label>
+        <span>name</span>
+        <div>
+          <input
+            aria-describedby="name-error"
+            type="text"
+            name="name"
+            autocomplete="name"
+            placeholder="jane doe"
+            required
+          >
+        </div>
+        <small id="name-error" aria-live="polite" />
+      </label>
+
+      <label>
+        <span>email</span>
+        <div>
+          <input
+            type="email"
+            name="email"
+            autocomplete="email"
+            placeholder="jdoe@example.com"
+            required
+            aria-describedby="email-error"
+          >
+        </div>
+        <small id="email-error" aria-live="polite" />
+      </label>
+
+      <label>
+        <span>subject</span>
+        <div>
+          <input
+            aria-describedby="subject-error"
+            type="text"
+            name="subject"
+            placeholder="what's this about?"
+          >
+        </div>
+        <small id="subject-error" aria-live="polite" />
+      </label>
+
+      <label>
+        <span>message</span>
+        <div>
+          <textarea
+            name="message"
+            placeholder="type your message here..."
+            required
+            aria-describedby="message-error"
+          />
+        </div>
+        <small id="message-error" aria-live="polite" />
+      </label>
+
+      <button type="submit">send message</button>
+
+      <div
+        id="hcaptcha"
+        class="h-captcha"
+        data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+        data-size="invisible"
+      />
+    </form>
+    <div id="alert" class="banner" role="status" aria-live="polite" hidden>
+      <span class="title" />
+      <div class="msg" />
+    </div>
+  </section>
+</Main>
+
+<script
+  is:inline
+  src="https://js.hcaptcha.com/1/api.js?recaptchacompat=false"
+  async
+  defer
+/>
+
+<script>
+///<reference types="@hcaptcha/types"/>
+
+enum HCaptchaError {
+  RATE_LIMITED = 'rate-limited',
+  NETWORK_ERROR = 'network-error',
+  INVALID_DATA = 'invalid-data',
+  INVALID_MFA_DATA = 'invalid-mfa-data',
+  CHALLENGE_ERROR = 'challenge-error',
+  CHALLENGE_CLOSED = 'challenge-closed',
+  CHALLENGE_EXPIRED = 'challenge-expired',
+  MISSING_CAPTCHA = 'missing-captcha',
+  INVALID_CAPTCHA_ID = 'invalid-captcha-id',
+  INTERNAL_ERROR = 'internal-error',
+}
+
+const formBanner = document.getElementById('alert')
+const form = document.getElementById('contact-me')
+const submitButton = document.querySelector('form button')
+
+function isErrorCode(error: unknown): error is HCaptchaError {
+  return (
+    typeof error === 'string' &&
+    Object.values(HCaptchaError).includes(error as HCaptchaError)
+  )
+}
+
+function validateField(field: HTMLInputElement | HTMLTextAreaElement) {
+  const v = field.validity
+  if (v.valid) return ''
+  if (v.valueMissing) return 'this field is required'
+  if (v.typeMismatch && field.type === 'email')
+    return "that doesn't look like an email address"
+  if (v.tooShort) return `needs at least ${field.minLength} characters`
+  return field.validationMessage
+}
+
+function validateForm(form: HTMLFormElement) {
+  let valid = true
+
+  const fields = form.querySelectorAll('input, textarea')
+
+  fields.forEach((field) => {
+    if (
+      field instanceof HTMLInputElement ||
+      field instanceof HTMLTextAreaElement
+    ) {
+      const msg = validateField(field)
+
+      const small = field.closest('label')?.querySelector('small')
+
+      if (small) {
+        small.textContent = msg
+      }
+
+      field.setAttribute('aria-invalid', msg ? 'true' : 'false')
+
+      if (msg) valid = false
+    }
+  })
+
+  return valid
+}
+
+function setLoading(state: boolean) {
+  if (form !== null && submitButton instanceof HTMLButtonElement) {
+    submitButton.dataset.loading = JSON.stringify(state)
+    submitButton.disabled = state
+    form.setAttribute('aria-busy', JSON.stringify(state))
+  }
+}
+
+function showBanner({
+  type,
+  msg,
+  title,
+}: {
+  type?: 'warn' | 'error' | 'good'
+  msg: string
+  title: string
+}) {
+  if (formBanner !== null) {
+    formBanner.hidden = false
+    formBanner.classList = `${type} banner`
+    formBanner.querySelector('.title')!.textContent = title
+    formBanner.querySelector('.msg')!.textContent = msg
+  }
+}
+
+function hideBanner() {
+  if (formBanner !== null) formBanner.hidden = true
+}
+
+if (form instanceof HTMLFormElement) {
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault()
+    try {
+      setLoading(true)
+      hideBanner()
+
+      if (!validateForm(form)) {
+        form.querySelector<HTMLInputElement>('[aria-invalid="true"]')?.focus()
+        setLoading(false)
+        return
+      }
+
+      await hcaptcha.execute(undefined, { async: true })
+
+      console.debug('captcha completed')
+
+      const body = new FormData(form)
+
+      // delete recaptcha value for web3form
+      body.delete('g-recaptcha-response')
+
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body,
+      }).then(async (res) => {
+        if (!res.ok) {
+          const text = await res.text()
+          console.debug('web3forms request failed', text)
+          throw new Error('request failed')
+        }
+      })
+
+      console.debug('submission succeeded')
+
+      showBanner({
+        type: 'good',
+        msg: 'thank you for contacting me. i will reply soon.',
+        title: 'message_sent',
+      })
+    } catch (error) {
+      console.debug('failure to submit form: ', error)
+      if (isErrorCode(error)) {
+        switch (error) {
+          case HCaptchaError.CHALLENGE_CLOSED:
+            showBanner({
+              type: 'error',
+              msg: 'do not close the captcha',
+              title: 'captcha_closed',
+            })
+            break
+          case HCaptchaError.CHALLENGE_EXPIRED:
+            showBanner({
+              type: 'error',
+              msg: 'please recomplete the captcha',
+              title: 'captcha_expired',
+            })
+            break
+          default:
+            showBanner({
+              type: 'error',
+              msg: 'unable to submit the form please try again',
+              title: 'unknown_error',
+            })
+            break
+        }
+      } else {
+        showBanner({
+          type: 'error',
+          msg: 'unable to submit the form please try again',
+          title: 'unknown_error',
+        })
+      }
+    }
+    setLoading(false)
+  })
+} else {
+  console.error('Form element not found and/or is not an HTMLFormElement.')
+}
+</script>

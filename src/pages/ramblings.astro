@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content'
+import Main from '../layouts/main.astro'
+
+const posts = (
+  await getCollection('posts', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true
+  })
+).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf())
+
+function fmtDate(date: Date) {
+  return date.toISOString().split('T')[0]
+}
+---
+
+<Main title="ramblings">
+  <div slot="header">
+    <h1>ramblings <span class="blink-cursor"></span></h1>
+    <p>thoughts on teaching, code, and the overlap between them</p>
+  </div>
+
+  {posts.map(({ id, data }) => (
+    <article class="wide">
+      <h3><a href={`/ramblings/${id}`}>{data.name}</a></h3>
+      <small><time datetime={data.published.toISOString()}>{fmtDate(data.published)}</time></small>
+      <p>{data.description}</p>
+      <div>
+        {data.tags.map(tag => <div class="tag">{tag}</div>)}
+      </div>
+    </article>
+  ))}
+</Main>
+
+<style>
+article {
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--line);
+  position: relative;
+
+  &:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+  h3 {
+    margin: 0 0 0.2rem;
+  }
+  p {
+    margin: 0.5rem 0 0;
+  }
+
+  div:has(> .tag) {
+    display: flex;
+    align-items: center;
+    gap: 1ch;
+    position: absolute;
+    top: 3ch;
+    right: 0;
+  }
+}
+</style>

@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/base.astro'
+---
+
+<Base title="not_found">
+  <main>
+    <h1>404</h1>
+    <p>this page could not be found.</p>
+    <p class="prompt">
+      visitor@justinforlenza.dev:~$ cd <span>/page</span> <br>bash: cd:
+      <span>/page</span>: No such file or directory
+    </p>
+    <nav><a href="/">back home</a></nav>
+  </main>
+</Base>
+
+<script>
+const spans = document.querySelectorAll('.prompt span')
+
+const currentPath = window.location.pathname
+spans.forEach((span) => {
+  span.textContent = currentPath
+})
+</script>
+
+<style>
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 2rem + 8vw, 6rem);
+  line-height: 1;
+  color: var(--br-red);
+}
+p {
+  margin: 0;
+  color: var(--body);
+}
+.prompt {
+  color: var(--muted);
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+.prompt span {
+  color: var(--br-yellow);
+}
+</style>

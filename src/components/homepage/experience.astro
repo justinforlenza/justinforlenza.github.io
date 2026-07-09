@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content'
+import type { Experience } from '../../schema'
+
+function fmtDate(date: Date, month: boolean = false): string {
+  return date.toLocaleDateString('en-US', {
+    month: month ? 'short' : undefined,
+    year: 'numeric',
+  })
+}
+
+function period({ start, end }: Experience, month: boolean = false): string {
+  const startDate = new Date(start)
+  if (end === undefined) return `${fmtDate(startDate, month)} - now`
+  const endDate = new Date(end)
+
+  return `${fmtDate(startDate, month)} - ${fmtDate(endDate, month)}`
+}
+
+const experience = await getCollection('experience')
+---
+
+<section id="experience" class="wide">
+  <h2>experience</h2>
+  {experience.map(e => <details>
+    <summary>
+      <div>
+        <time
+          title={period(e.data, true)}
+          datetime={`${e.data.start}/${e.data.end}`}>
+        {period(e.data)}
+        </time>
+        {e.data.role} &middot; {e.data.org}
+      </div>
+      {e.data.consultant && <span class="tag">consultant</span>}
+    </summary>
+    <ul>
+      {e.data.highlights.map(line => (
+        <li>{line}</li>
+      ))}
+    </ul>
+  </details>)}
+</section>
+
+<style>
+summary {
+  display: grid;
+  grid-template-columns: 2ch 1fr 10ch;
+  align-items: center;
+
+  > .tag {
+    justify-self: flex-end;
+  }
+
+  time {
+    display: inline-block;
+    min-width: 11ch;
+    margin-right: 2ch;
+    color: var(--marker);
+  }
+}
+</style>

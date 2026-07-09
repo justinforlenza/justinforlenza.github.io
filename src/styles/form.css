@@ -1,0 +1,165 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+form label {
+  display: grid;
+  gap: 0.1rem;
+  border-left: 2px solid var(--line);
+  padding-left: 0.9rem;
+}
+form label:focus-within {
+  border-left-color: var(--title);
+}
+
+form label > span {
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+form label:focus-within > span {
+  color: var(--title);
+  font-weight: 500;
+}
+form label:has(:required) > span::after {
+  content: " *";
+  color: var(--marker);
+}
+
+form label > small {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+form label > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6ch;
+  margin-top: 0.3rem;
+
+  &::before {
+    content: ">";
+    color: var(--muted);
+  }
+}
+form label:focus-within > div::before {
+  color: var(--title);
+}
+
+form :is(input, textarea) {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  color: var(--foreground);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  caret-color: var(--cursor);
+  caret-shape: block;
+
+  &::placeholder {
+    color: var(--muted);
+    opacity: 0.6;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+form textarea {
+  min-height: 6rem;
+  line-height: 1.6;
+  resize: none;
+}
+
+form label:has([aria-invalid="true"]) {
+  border-left-color: var(--br-red);
+
+  > span,
+  div::before {
+    color: var(--br-red);
+  }
+
+  > small {
+    color: var(--br-red);
+    opacity: 1;
+
+    &::before {
+      content: "✗ ";
+    }
+    &:empty {
+      display: none;
+    }
+  }
+}
+
+form button {
+  justify-self: start;
+  font: inherit;
+  color: var(--background);
+  background: var(--title);
+  border: 1px solid var(--title);
+  border-radius: 0;
+  padding: 0.35rem 1rem;
+  cursor: pointer;
+
+  &::before {
+    content: "↵ ";
+  }
+  &:hover,
+  &:focus-visible {
+    color: var(--title);
+    background: transparent;
+  }
+}
+
+form button[data-loading="true"] {
+  cursor: progress;
+
+  &::before {
+    content: "⠋";
+    padding-inline-end: 0.4ch;
+    animation: tui-spin 0.9s step-end infinite;
+  }
+}
+
+@keyframes tui-spin {
+  0% {
+    content: "⠋";
+  }
+  10% {
+    content: "⠙";
+  }
+  20% {
+    content: "⠹";
+  }
+  30% {
+    content: "⠸";
+  }
+  40% {
+    content: "⠼";
+  }
+  50% {
+    content: "⠴";
+  }
+  60% {
+    content: "⠦";
+  }
+  70% {
+    content: "⠧";
+  }
+  80% {
+    content: "⠇";
+  }
+  90% {
+    content: "⠏";
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  form button[data-loading]::before {
+    animation: none;
+  }
+}

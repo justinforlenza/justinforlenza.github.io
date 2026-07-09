@@ -1,0 +1,82 @@
+{
+  "$schema": ".schema/project.json",
+  "records": [
+    {
+      "name": "keylight-control",
+      "description": "A desktop app for controlling Elgato Key Lights on Linux, where no official client exists. Adjust power, brightness, and color temperature for every light on the network from one window.",
+      "tech": ["javascript"],
+      "status": "active",
+      "url": "https://github.com/justinforlenza/keylight-control"
+    },
+    {
+      "name": "pyrepl",
+      "description": "A browser-based Python REPL built on Pyodide, made for teaching a foundations unit without asking students to install anything. Code persists locally in IndexedDB and compresses into a shareable link.",
+      "tech": ["svelte", "pyodide", "wasm"],
+      "status": "active",
+      "url": "https://github.com/Teach-Stack/pyrepl"
+    },
+    {
+      "name": "webrepl",
+      "description": "A browser-based HTML/CSS editor built using service workers. Code persists locally in IndexedDB and compresses into a shareable link.",
+      "tech": ["svelte", "service-workers"],
+      "status": "active",
+      "url": "https://github.com/Teach-Stack/webrepl"
+    },
+    {
+      "name": "forlenza-scada",
+      "description": "A simulated industrial SCADA control interface, built to demonstrate the compatibility quirks and failure modes common to legacy control systems — a teaching prop dressed as the real thing.",
+      "tech": ["rust"],
+      "status": "active",
+      "url": "https://github.com/justinforlenza/forlenza-scada"
+    },
+    {
+      "name": "home-assistant-tray",
+      "description": "A lightweight system-tray app that embeds your Home Assistant dashboard in a popup window, so the whole house is one click away without a browser tab open all day.",
+      "tech": ["rust", "tauri"],
+      "status": "active",
+      "url": "https://github.com/justinforlenza/home-assistant-tray"
+    },
+    {
+      "name": "cpp-enhancer",
+      "description": "A browser extension to enhance the user experience of the NYC Career Pathways website.",
+      "tech": ["typescript", "wxt", "solid"],
+      "status": "active",
+      "url": "https://github.com/justinforlenza/cpp-enhancer"
+    },
+    {
+      "name": "thumbhash-py",
+      "description": "A Python port of thumbhash — a very compact representation of an image used to render a blurred placeholder while the real one loads.",
+      "tech": ["python"],
+      "status": "active",
+      "url": "https://github.com/justinforlenza/thumbhash-py"
+    },
+    {
+      "name": "sendy-shopify-sync",
+      "description": "A small service that keeps Shopify customers in sync with Sendy mailing lists, so the newsletter audience updates itself.",
+      "tech": ["python"],
+      "status": "archived",
+      "url": "https://github.com/justinforlenza/sendy-shopify-sync"
+    },
+    {
+      "name": "gsuite-tool",
+      "description": "Desktop app for G-Suite administration.",
+      "tech": ["vue"],
+      "status": "archived",
+      "url": "https://github.com/justinforlenza/gsuite-tool"
+    },
+    {
+      "name": "cpat",
+      "description": "Automation tool for NYC Schools' Career Pathways Portal.",
+      "tech": ["vue", "tauri"],
+      "status": "archived",
+      "url": "https://github.com/justinforlenza/cpat"
+    },
+    {
+      "name": "staten-island-ferry-app",
+      "description": "Android app built around the ferry schedule.",
+      "tech": ["java"],
+      "status": "archived",
+      "url": "https://github.com/justinforlenza/staten-island-ferry-app"
+    }
+  ]
+}
