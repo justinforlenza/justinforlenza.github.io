@@ -7,14 +7,14 @@ header {
   border-radius: var(--radius);
   padding: var(--pad);
 
-  & > :first-child {
+  > :first-child {
     margin-top: 0;
   }
-  & p {
+  p {
     color: var(--muted);
     margin: 0.15rem 0 0;
   }
-  & dl {
+  dl {
     margin-top: 0.85rem;
   }
 }
@@ -24,7 +24,7 @@ nav {
   flex-wrap: wrap;
   gap: 0.15rem 1.3rem;
 
-  & a {
+  a {
     color: var(--foreground);
     &::before {
       content: "» ";
@@ -45,6 +45,8 @@ main {
 }
 
 section {
+  height: 100%;
+
   container-type: inline-size;
   position: relative;
   border: 1px solid var(--line);
@@ -62,14 +64,6 @@ section {
     background: var(--background);
     color: var(--title);
     font-size: 0.9em;
-    ::before {
-      content: "┤ ";
-      color: var(--line-strong);
-    }
-    ::after {
-      content: " ├";
-      color: var(--line-strong);
-    }
   }
 
   > :nth-child(2) {

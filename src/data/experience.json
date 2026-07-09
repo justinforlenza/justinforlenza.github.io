@@ -1,0 +1,81 @@
+{
+  "$schema": ".schema/experience.json",
+  "records": [
+    {
+      "start": "2022-09-01",
+      "role": "instructor & platform developer",
+      "org": "Brooklyn STEAM Center",
+      "highlights": [
+        "Project-managed 20+ student groups building real-world full-stack projects.",
+        "Built and maintained a bespoke school-management platform.",
+        "Architected a sandboxed server environment for three computer-technology pathways.",
+        "Ran the GitHub Enterprise account, keeping it compliant with school and education law."
+      ]
+    },
+    {
+      "start": "2023-01-01",
+      "end": "2023-10-01",
+      "consultant": true,
+      "role": "inventory systems developer",
+      "org": "Amogy",
+      "highlights": [
+        "Built a bespoke inventory-tracking system around specific operational needs."
+      ]
+    },
+    {
+      "start": "2021-01-01",
+      "end": "2024-04-01",
+      "consultant": true,
+      "role": "application developer",
+      "org": "Brooklyn Navy Yard Dev. Corp.",
+      "highlights": [
+        "Maintained the ID Portal app, including server and database management.",
+        "Shipped new features to meet evolving business needs."
+      ]
+    },
+    {
+      "start": "2021-02-01",
+      "end": "2022-01-01",
+      "role": "software developer",
+      "org": "NYC Cyber Command",
+      "highlights": [
+        "Migrated a Vue.js application to React.",
+        "Built and maintained ElasticSearch indexes for internal tools.",
+        "Built a threat-analysis pipeline with Celery and Flask.",
+        "Maintained Docker containers for internal applications."
+      ]
+    },
+    {
+      "start": "2019-07-01",
+      "end": "2020-09-01",
+      "role": "full-stack developer",
+      "org": "Brooklyn Navy Yard Dev. Corp.",
+      "highlights": [
+        "Wrote Python automation to pull data from vendors.",
+        "Built a tenant onboarding portal with Django and Vue.js.",
+        "Helped maintain infrastructure across the Navy Yard campus."
+      ]
+    },
+    {
+      "start": "2018-06-01",
+      "end": "2019-01-01",
+      "role": "software developer",
+      "org": "NYC Cyber Command",
+      "highlights": [
+        "Built an internal SOC web portal with Vue.js, Flask, and Firebase.",
+        "Wrote Python automation for the Threat Management team."
+      ]
+    },
+    {
+      "start": "2017-09-01",
+      "end": "2018-01-01",
+      "role": "CS & IT instructor",
+      "org": "Brooklyn STEAM Center",
+      "highlights": [
+        "Taught computer science and IT to 11th and 12th graders.",
+        "Helped organize the curriculum for a new CTE program.",
+        "Sourced hardware and software with vendors for students and staff."
+      ]
+    }
+  ]
+}

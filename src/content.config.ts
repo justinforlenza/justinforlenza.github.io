@@ -1,7 +1,12 @@
 import { defineCollection } from 'astro:content'
 import { file } from 'astro/loaders'
 
-import { SocialJSON, SocialSchema } from './schema'
+import {
+  ExperienceJSON,
+  ExperienceSchema,
+  SocialJSON,
+  SocialSchema,
+} from './schema'
 
 const socials = defineCollection({
   loader: file('src/data/socials.json', {
@@ -16,4 +21,21 @@ const socials = defineCollection({
   schema: SocialSchema,
 })
 
-export const collections = { socials }
+const experience = defineCollection({
+  loader: file('src/data/experience.json', {
+    parser: async (raw) => {
+      try {
+        const parsed = JSON.parse(raw)
+        const validated = ExperienceJSON.parse(parsed)
+
+        return validated.records.map((r, i) => ({ ...r, id: i }))
+      } catch (e) {
+        console.debug(e)
+        throw new Error('')
+      }
+    },
+  }),
+  schema: ExperienceSchema,
+})
+
+export const collections = { socials, experience }

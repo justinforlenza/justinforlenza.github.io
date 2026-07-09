@@ -50,7 +50,7 @@ ul {
   margin: 0.45rem 0;
   padding-left: 1.2rem;
 
-  & li {
+  li {
     position: relative;
     color: var(--body);
     &::before {
@@ -64,10 +64,10 @@ ul {
 ol {
   margin: 0.45rem 0;
   padding-left: 1.5rem;
-  & li {
+  li {
     color: var(--body);
   }
-  & li::marker {
+  li::marker {
     color: var(--marker);
   }
 }
@@ -78,10 +78,10 @@ dl {
   gap: 0.15rem 1rem;
   margin: 0.45rem 0;
 
-  & dt {
+  dt {
     color: var(--marker);
   }
-  & dd {
+  dd {
     margin: 0;
     color: var(--body);
   }
@@ -97,7 +97,7 @@ pre {
   overflow: auto;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  & code {
+  code {
     color: inherit;
   }
 }
@@ -168,12 +168,6 @@ summary {
   &:hover {
     color: var(--link);
   }
-  & time {
-    display: inline-block;
-    min-width: 5.5em;
-    margin-right: 0.5rem;
-    color: var(--marker);
-  }
 }
 details[open] > summary::before {
   content: "▾";
@@ -190,4 +184,11 @@ details :where(ul, ol, p) {
   height: 1.05em;
   translate: 0 0.16em;
   background: var(--cursor);
+}
+
+.tag {
+  color: var(--background);
+  background: var(--br-blue);
+  padding: 0 0.4em;
+  font-size: 0.85em;
 }
