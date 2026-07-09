@@ -1,16 +1,7 @@
 import { defineCollection } from 'astro:content'
 import { file } from 'astro/loaders'
 
-import { z } from 'astro/zod'
-
-const SocialSchema = z.object({
-  name: z.string(),
-  url: z.url(),
-})
-
-const SocialJSON = z.object({
-  records: SocialSchema.array(),
-})
+import { SocialJSON, SocialSchema } from './schema'
 
 const socials = defineCollection({
   loader: file('src/data/socials.json', {
@@ -22,7 +13,7 @@ const socials = defineCollection({
       return validated.records.map((r, i) => ({ ...r, id: i }))
     },
   }),
-  schema: SocialSchema
+  schema: SocialSchema,
 })
 
 export const collections = { socials }

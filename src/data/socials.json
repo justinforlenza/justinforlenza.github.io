@@ -1,4 +1,5 @@
 {
+  "$schema": ".schema/social.json",
   "records": [
     {
       "name": "github",

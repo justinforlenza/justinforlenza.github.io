@@ -4,19 +4,21 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node gen-schema.ts && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "lint": "biome lint",
+    "lint:fix": "biome lint --fix",
+    "fmt": "biome format",
+    "fmt:write": "biome format --write",
+    "gen:schema": "node gen-schema.ts"
   },
   "dependencies": {
     "astro": "^7.0.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.2"
+    "@biomejs/biome": "2.5.2",
+    "@types/node": "^26.1.0"
   },
   "engines": {
     "node": ">=22.12.0"
