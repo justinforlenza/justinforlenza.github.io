@@ -24,5 +24,4 @@ export const ExperienceJSON = z.object({
   records: ExperienceSchema.array(),
 })
 
-
 export type Experience = z.infer<typeof ExperienceSchema>

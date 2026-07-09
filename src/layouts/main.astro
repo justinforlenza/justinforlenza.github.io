@@ -1,7 +1,6 @@
 ---
-import '../styles/_index.css'
-
 import { getCollection } from 'astro:content'
+import Base from './base.astro'
 
 const socials = await getCollection('socials')
 
@@ -28,18 +27,15 @@ const logo = `
  #####
 ####
 ##`
+
+interface Props {
+  title?: string
+}
+
+const { title } = Astro.props
 ---
 
-<html lang="en" data-theme="one-dark-two">
-  <head>
-    <meta charset="utf-8">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width">
-    <meta name="generator" content={Astro.generator}>
-    <title>Justin Forlenza</title>
-  </head>
-  <body>
+<Base title={title}>
   <nav>
     <a href="/">about</a>
     <a href="/projects">projects</a>
@@ -47,45 +43,44 @@ const logo = `
     <!-- <a href="/writing">writing</a> -->
     <a href="/contact">contact</a>
   </nav>
-    <header>
-      <slot name="header">
-        <pre aria-hidden="true">{logo}</pre>
-        <div>
-          <h1>Justin Forlenza <span class="blink-cursor"></span></h1>
-          <p>full-stack developer &middot; educator</p>
-          <dl>
-            <dt>role</dt>
-            <dd>
-              full-stack instructor @&nbsp;
-              <a target="_blank" href="https://brooklynsteamcenter.org">
-                Brooklyn STEAM Center
-              </a>
-            </dd>
-            <dt>loc</dt>
-            <dd>new york city</dd>
-            <dt>email</dt>
-            <dd>
-              <a href="mailto:justin@justinforlenza.dev">
-                justin@justinforlenza.dev
-              </a>
-            </dd>
-          </dl>
-        </div>
-      </slot>
-    </header>
-    <main>
-      <slot />
-    </main>
+  <header>
+    <slot name="header">
+      <pre aria-hidden="true">{logo}</pre>
+      <div>
+        <h1>Justin Forlenza <span class="blink-cursor"></span></h1>
+        <p>full-stack developer &middot; educator</p>
+        <dl>
+          <dt>role</dt>
+          <dd>
+            full-stack instructor @&nbsp;
+            <a target="_blank" href="https://brooklynsteamcenter.org">
+              Brooklyn STEAM Center
+            </a>
+          </dd>
+          <dt>loc</dt>
+          <dd>new york city</dd>
+          <dt>email</dt>
+          <dd>
+            <a href="mailto:justin@justinforlenza.dev">
+              justin@justinforlenza.dev
+            </a>
+          </dd>
+        </dl>
+      </div>
+    </slot>
+  </header>
+  <main>
+    <slot />
+  </main>
 
-    <footer>
-      {socials.map((social) => (
+  <footer>
+    {socials.map((social) => (
         <a href={social.data.url} target="_blank" rel="noopener noreferrer">
           {social.data.name}
         </a>
       ))}
-    </footer>
-  </body>
-</html>
+  </footer>
+</Base>
 
 <style>
 pre {
