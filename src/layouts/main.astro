@@ -1,17 +1,9 @@
 ---
 import '../styles/_index.css'
 
-type Social = {
-  name: string
-  url: string
-}
+import { getCollection } from 'astro:content'
 
-const socials: Social[] = [
-  { name: 'github', url: 'https://github.com/justinforlenza' },
-  { name: 'linkedin', url: 'https://www.linkedin.com/in/justinforlenza/' },
-  { name: 'blueksy', url: 'https://bsky.app/profile/justinforlenza.dev' },
-  { name: 'mastodon', url: 'https://mastodon.social/@justinf' },
-]
+const socials = await getCollection('socials')
 ---
 
 <html lang="en" data-theme="one-dark-two">
@@ -53,8 +45,8 @@ const socials: Social[] = [
 
     <footer>
       {socials.map((social) => (
-        <a href={social.url} target="_blank" rel="noopener noreferrer">
-          {social.name}
+        <a href={social.data.url} target="_blank" rel="noopener noreferrer">
+          {social.data.name}
         </a>
       ))}
     </footer>

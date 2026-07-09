@@ -1,0 +1,20 @@
+{
+  "records": [
+    {
+      "name": "github",
+      "url": "https://github.com/justinforlenza"
+    },
+    {
+      "name": "linkedin",
+      "url": "https://www.linkedin.com/in/justinforlenza/"
+    },
+    {
+      "name": "blueksy",
+      "url": "https://bsky.app/profile/justinforlenza.dev"
+    },
+    {
+      "name": "mastodon",
+      "url": "https://mastodon.social/@justinf"
+    }
+  ]
+}
