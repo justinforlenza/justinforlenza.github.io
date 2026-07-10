@@ -43,7 +43,10 @@ if (theme !== null) theme.hidden = true
 const themeSelect = theme?.querySelector('select')
 
 if (themeSelect instanceof HTMLSelectElement) {
-  themeSelect.value = localStorage.getItem('theme') ?? 'one-dark-two'
+  const localTheme = localStorage.getItem('theme')
+
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'one-dark-two' : 'one-double-light'
+  themeSelect.value = localTheme ?? systemTheme
 
   themeSelect.addEventListener('change', () => {
     document.documentElement.dataset.theme = themeSelect.value
