@@ -29,8 +29,14 @@ header:has(> pre) {
 
 nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.15rem 1.3rem;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 1.3rem;
+  }
 
   a {
     color: var(--foreground);

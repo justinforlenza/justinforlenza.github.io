@@ -1,21 +1,21 @@
 :root {
   /* Readable aliases for the numbered ANSI slots a theme provides */
-  --black: var(--ansi-0, #1d1f23);
-  --br-black: var(--ansi-8, #4a505a);
-  --red: var(--ansi-1, #e27881);
-  --br-red: var(--ansi-9, #e68991);
-  --green: var(--ansi-2, #98c379);
-  --br-green: var(--ansi-10, #a8cc8e);
-  --yellow: var(--ansi-3, #eac786);
-  --br-yellow: var(--ansi-11, #edcf97);
-  --blue: var(--ansi-4, #71b9f4);
-  --br-blue: var(--ansi-12, #8dc7f6);
-  --magenta: var(--ansi-5, #c88bda);
-  --br-magenta: var(--ansi-13, #d3a2e2);
-  --cyan: var(--ansi-6, #62bac6);
-  --br-cyan: var(--ansi-14, #78c4ce);
-  --white: var(--ansi-7, #c9ccd3);
-  --br-white: var(--ansi-15, #e6e6e6);
+  --black: var(--ansi-0);
+  --br-black: var(--ansi-8);
+  --red: var(--ansi-1);
+  --br-red: var(--ansi-9);
+  --green: var(--ansi-2);
+  --br-green: var(--ansi-10);
+  --yellow: var(--ansi-3);
+  --br-yellow: var(--ansi-11);
+  --blue: var(--ansi-4);
+  --br-blue: var(--ansi-12);
+  --magenta: var(--ansi-5);
+  --br-magenta: var(--ansi-13);
+  --cyan: var(--ansi-6);
+  --br-cyan: var(--ansi-14);
+  --white: var(--ansi-7);
+  --br-white: var(--ansi-15);
 
   /* ROLES — the only lines you touch to re-skin every theme at once. */
   --title: var(--br-cyan); /* headings, panel titles, the name */
@@ -24,26 +24,10 @@
   --muted: var(--br-black); /* taglines, timestamps, comments   */
 
   /* Structure derived from fg/bg, so it fits any scheme without tuning */
-  --line: color-mix(
-    in oklab,
-    var(--foreground, #e6e6e6) 16%,
-    var(--background, #21252b)
-  );
-  --line-strong: color-mix(
-    in oklab,
-    var(--foreground, #e6e6e6) 34%,
-    var(--background, #21252b)
-  );
-  --raised: color-mix(
-    in oklab,
-    var(--foreground, #e6e6e6) 7%,
-    var(--background, #21252b)
-  );
-  --body: color-mix(
-    in oklab,
-    var(--foreground, #e6e6e6) 84%,
-    var(--background, #21252b)
-  );
+  --line: color-mix(in oklab, var(--foreground) 16%, var(--background));
+  --line-strong: color-mix(in oklab, var(--foreground) 34%, var(--background));
+  --raised: color-mix(in oklab, var(--foreground) 7%, var(--background));
+  --body: color-mix(in oklab, var(--foreground) 84%, var(--background));
 
   /* Layout tokens */
   --mono:

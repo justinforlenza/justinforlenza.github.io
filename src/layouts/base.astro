@@ -15,6 +15,10 @@ const { title } = Astro.props
     <meta name="viewport" content="width=device-width">
     <meta name="generator" content={Astro.generator}>
     <title>{title && `${title}@`}justin_forlenza</title>
+    <script is:inline>
+    document.documentElement.dataset.theme =
+      localStorage.getItem('theme') ?? 'one-dark-two'
+    </script>
   </head>
   <body>
     <slot />

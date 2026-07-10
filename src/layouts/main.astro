@@ -41,10 +41,20 @@ const { title } = Astro.props
 
 <Base title={title}>
   <nav>
-    <a href="/">about</a>
-    <a href="/projects">projects</a>
-    {posts.length > 0 && <a href="/ramblings">ramblings</a>}
-    <a href="/contact">contact</a>
+    <div>
+      <a href="/">about</a>
+      <a href="/projects">projects</a>
+      {posts.length > 0 && <a href="/ramblings">ramblings</a>}
+      <a href="/contact">contact</a>
+    </div>
+    <label>
+      theme:
+      <select id="theme-select" aria-label="select color theme">
+        <option value="one-dark-two">one dark two</option>
+        <option value="gruvbox">gruvbox dark</option>
+        <option value="ayu-light">ayu light</option>
+      </select>
+    </label>
   </nav>
   <slot name="header-all">
     <header>
@@ -66,6 +76,19 @@ const { title } = Astro.props
       ))}
   </footer>
 </Base>
+
+<script>
+const themeSelect = document.getElementById('theme-select')
+
+if (themeSelect instanceof HTMLSelectElement) {
+  themeSelect.value = localStorage.getItem('theme') ?? 'one-dark-two'
+
+  themeSelect.addEventListener('change', () => {
+    document.documentElement.dataset.theme = themeSelect.value
+    localStorage.setItem('theme', themeSelect.value)
+  })
+}
+</script>
 
 <style>
 pre {
@@ -89,6 +112,37 @@ pre {
     > pre {
       align-self: center;
     }
+  }
+}
+
+label {
+  font-size: 0.9em;
+  color: var(--muted);
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6ch;
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
+    color: var(--title);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0 1.7ch 0 0;
+    cursor: pointer;
+  }
+
+  label::after {
+    content: "▾";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--title);
+    pointer-events: none;
   }
 }
 </style>

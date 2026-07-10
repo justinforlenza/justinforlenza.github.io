@@ -128,20 +128,6 @@ table {
   }
 }
 
-input,
-textarea,
-select {
-  font: inherit;
-  color: var(--foreground);
-  background: var(--raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 0.35rem 0.6rem;
-  &:focus-visible {
-    border-color: var(--title);
-  }
-}
-
 details {
   border-top: 1px solid var(--line);
   padding: 0.55rem 0;
