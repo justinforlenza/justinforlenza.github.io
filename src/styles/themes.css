@@ -1,3 +1,6 @@
+/* Themes Converted from ITerm2 (https://iterm2colorschemes.com/) licensed under MIT  */
+
+/* One Dark Two */
 [data-theme="one-dark-two"] {
   --ansi-0: #1d1f23;
   --ansi-1: #e27881;
@@ -67,4 +70,412 @@
   --foreground: #5c6166;
   --cursor: #ffaa33;
   --selection: #035bd6;
+}
+
+/* Homebrew */
+[data-theme="homebrew"] {
+  --ansi-0: #000000;
+  --ansi-1: #990000;
+  --ansi-2: #00a600;
+  --ansi-3: #999900;
+  --ansi-4: #0000b2;
+  --ansi-5: #b200b2;
+  --ansi-6: #00a6b2;
+  --ansi-7: #bfbfbf;
+  --ansi-8: #666666;
+  --ansi-9: #e50000;
+  --ansi-10: #00d900;
+  --ansi-11: #e5e500;
+  --ansi-12: #0000ff;
+  --ansi-13: #e500e5;
+  --ansi-14: #00e5e5;
+  --ansi-15: #e5e5e5;
+  --background: #000000;
+  --foreground: #00ff00;
+  --cursor: #23ff18;
+  --selection: #083905;
+}
+
+/* Hopscotch */
+[data-theme="hopscotch"] {
+  --ansi-0: #322931;
+  --ansi-1: #dd464c;
+  --ansi-2: #8fc13e;
+  --ansi-3: #fdcc59;
+  --ansi-4: #1290bf;
+  --ansi-5: #c85e7c;
+  --ansi-6: #149b93;
+  --ansi-7: #b9b5b8;
+  --ansi-8: #797379;
+  --ansi-9: #fd8b19;
+  --ansi-10: #433b42;
+  --ansi-11: #5c545b;
+  --ansi-12: #989498;
+  --ansi-13: #d5d3d5;
+  --ansi-14: #b33508;
+  --ansi-15: #ffffff;
+  --background: #322931;
+  --foreground: #b9b5b8;
+  --cursor: #b9b5b8;
+  --selection: #5c545b;
+}
+
+/* Hot Dog Stand */
+[data-theme="hot-dog-stand"] {
+  --ansi-0: #000000;
+  --ansi-1: #ffff54;
+  --ansi-2: #ffff54;
+  --ansi-3: #ffff54;
+  --ansi-4: #000000;
+  --ansi-5: #ffff54;
+  --ansi-6: #ffffff;
+  --ansi-7: #c6c6c6;
+  --ansi-8: #000000;
+  --ansi-9: #ffff54;
+  --ansi-10: #ffff54;
+  --ansi-11: #ffff54;
+  --ansi-12: #000000;
+  --ansi-13: #ffff54;
+  --ansi-14: #ffffff;
+  --ansi-15: #c6c6c6;
+  --background: #ea3323;
+  --foreground: #ffffff;
+  --cursor: #ffff54;
+  --selection: #ffff54;
+}
+
+/* Material */
+[data-theme="material"] {
+  --ansi-0: #212121;
+  --ansi-1: #b7141f;
+  --ansi-2: #457b24;
+  --ansi-3: #f6981e;
+  --ansi-4: #134eb2;
+  --ansi-5: #560088;
+  --ansi-6: #0e717c;
+  --ansi-7: #efefef;
+  --ansi-8: #424242;
+  --ansi-9: #e83b3f;
+  --ansi-10: #7aba3a;
+  --ansi-11: #ffea2e;
+  --ansi-12: #54a4f3;
+  --ansi-13: #aa4dbc;
+  --ansi-14: #26bbd1;
+  --ansi-15: #d9d9d9;
+  --background: #eaeaea;
+  --foreground: #232322;
+  --cursor: #16afca;
+  --selection: #c2c2c2;
+}
+
+/* Ubuntu */
+[data-theme="ubuntu"] {
+  --ansi-0: #2e3436;
+  --ansi-1: #cc0000;
+  --ansi-2: #4e9a06;
+  --ansi-3: #c4a000;
+  --ansi-4: #3465a4;
+  --ansi-5: #75507b;
+  --ansi-6: #06989a;
+  --ansi-7: #d3d7cf;
+  --ansi-8: #555753;
+  --ansi-9: #ef2929;
+  --ansi-10: #8ae234;
+  --ansi-11: #fce94f;
+  --ansi-12: #729fcf;
+  --ansi-13: #ad7fa8;
+  --ansi-14: #34e2e2;
+  --ansi-15: #eeeeec;
+  --background: #300a24;
+  --foreground: #eeeeec;
+  --cursor: #bbbbbb;
+  --selection: #b5d5ff;
+}
+
+/* Fairyfloss */
+[data-theme="fairyfloss"] {
+  --ansi-0: #040303;
+  --ansi-1: #f92672;
+  --ansi-2: #c2ffdf;
+  --ansi-3: #e6c000;
+  --ansi-4: #c2ffdf;
+  --ansi-5: #ffb8d1;
+  --ansi-6: #c5a3ff;
+  --ansi-7: #f8f8f0;
+  --ansi-8: #6090cb;
+  --ansi-9: #ff857f;
+  --ansi-10: #c2ffdf;
+  --ansi-11: #ffea00;
+  --ansi-12: #c2ffdf;
+  --ansi-13: #ffb8d1;
+  --ansi-14: #c5a3ff;
+  --ansi-15: #f8f8f0;
+  --background: #5a5475;
+  --foreground: #f8f8f2;
+  --cursor: #f8f8f0;
+  --selection: #8077a8;
+}
+
+/* Frostbyte */
+[data-theme="frostbyte"] {
+  --ansi-0: #283645;
+  --ansi-1: #c2384f;
+  --ansi-2: #2e7a56;
+  --ansi-3: #876010;
+  --ansi-4: #1a66be;
+  --ansi-5: #5552cc;
+  --ansi-6: #1a7e9e;
+  --ansi-7: #586878;
+  --ansi-8: #93a4b6;
+  --ansi-9: #c2384f;
+  --ansi-10: #2e7a56;
+  --ansi-11: #9a5220;
+  --ansi-12: #1a66be;
+  --ansi-13: #5552cc;
+  --ansi-14: #1a7e9e;
+  --ansi-15: #283645;
+  --background: #eef5fc;
+  --foreground: #283645;
+  --cursor: #1f73cc;
+  --selection: #d2e4f4;
+}
+
+/* Fun Forrest */
+[data-theme="fun-forrest"] {
+  --ansi-0: #000000;
+  --ansi-1: #d6262b;
+  --ansi-2: #919c00;
+  --ansi-3: #be8a13;
+  --ansi-4: #4699a3;
+  --ansi-5: #8d4331;
+  --ansi-6: #da8213;
+  --ansi-7: #ddc265;
+  --ansi-8: #7f6a55;
+  --ansi-9: #e55a1c;
+  --ansi-10: #bfc65a;
+  --ansi-11: #ffcb1b;
+  --ansi-12: #7cc9cf;
+  --ansi-13: #d26349;
+  --ansi-14: #e6a96b;
+  --ansi-15: #ffeaa3;
+  --background: #251200;
+  --foreground: #dec165;
+  --cursor: #e5591c;
+  --selection: #e5591c;
+}
+
+/* GitHub Light High Contrast */
+[data-theme="github-light-high-contrast"] {
+  --ansi-0: #0e1116;
+  --ansi-1: #a0111f;
+  --ansi-2: #024c1a;
+  --ansi-3: #3f2200;
+  --ansi-4: #0349b4;
+  --ansi-5: #622cbc;
+  --ansi-6: #1b7c83;
+  --ansi-7: #66707b;
+  --ansi-8: #4b535d;
+  --ansi-9: #86061d;
+  --ansi-10: #055d20;
+  --ansi-11: #4e2c00;
+  --ansi-12: #1168e3;
+  --ansi-13: #844ae7;
+  --ansi-14: #3192aa;
+  --ansi-15: #88929d;
+  --background: #ffffff;
+  --foreground: #0e1116;
+  --cursor: #0349b4;
+  --selection: #0e1116;
+}
+
+/* Green Phosphor CRT */
+[data-theme="green-phosphor-crt"] {
+  --ansi-0: #002200;
+  --ansi-1: #00aa00;
+  --ansi-2: #33ff33;
+  --ansi-3: #66ff66;
+  --ansi-4: #00cc44;
+  --ansi-5: #00ff88;
+  --ansi-6: #66ffaa;
+  --ansi-7: #b6ffb6;
+  --ansi-8: #0a5a0a;
+  --ansi-9: #19cc19;
+  --ansi-10: #66ff66;
+  --ansi-11: #99ff99;
+  --ansi-12: #33ff77;
+  --ansi-13: #66ffaa;
+  --ansi-14: #99ffcc;
+  --ansi-15: #e6ffe6;
+  --background: #0b0f0b;
+  --foreground: #33ff33;
+  --cursor: #33ff33;
+  --selection: #0a3a0a;
+}
+
+/* CGA */
+[data-theme="cga"] {
+  --ansi-0: #000000;
+  --ansi-1: #aa0000;
+  --ansi-2: #00aa00;
+  --ansi-3: #aa5500;
+  --ansi-4: #0000aa;
+  --ansi-5: #aa00aa;
+  --ansi-6: #00aaaa;
+  --ansi-7: #aaaaaa;
+  --ansi-8: #555555;
+  --ansi-9: #ff5555;
+  --ansi-10: #55ff55;
+  --ansi-11: #ffff55;
+  --ansi-12: #5555ff;
+  --ansi-13: #ff55ff;
+  --ansi-14: #55ffff;
+  --ansi-15: #ffffff;
+  --background: #000000;
+  --foreground: #aaaaaa;
+  --cursor: #b8b8b8;
+  --selection: #c1deff;
+}
+
+/* Django */
+[data-theme="django"] {
+  --ansi-0: #000000;
+  --ansi-1: #fd6209;
+  --ansi-2: #41a83e;
+  --ansi-3: #ffe862;
+  --ansi-4: #245032;
+  --ansi-5: #f8f8f8;
+  --ansi-6: #9df39f;
+  --ansi-7: #ffffff;
+  --ansi-8: #323232;
+  --ansi-9: #ff943b;
+  --ansi-10: #73da70;
+  --ansi-11: #ffff94;
+  --ansi-12: #568264;
+  --ansi-13: #ffffff;
+  --ansi-14: #cfffd1;
+  --ansi-15: #ffffff;
+  --background: #0b2f20;
+  --foreground: #f8f8f8;
+  --cursor: #336442;
+  --selection: #245032;
+}
+
+/* C64 */
+[data-theme="c64"] {
+  --ansi-0: #090300;
+  --ansi-1: #883932;
+  --ansi-2: #55a049;
+  --ansi-3: #bfce72;
+  --ansi-4: #40318d;
+  --ansi-5: #8b3f96;
+  --ansi-6: #67b6bd;
+  --ansi-7: #ffffff;
+  --ansi-8: #000000;
+  --ansi-9: #883932;
+  --ansi-10: #55a049;
+  --ansi-11: #bfce72;
+  --ansi-12: #40318d;
+  --ansi-13: #8b3f96;
+  --ansi-14: #67b6bd;
+  --ansi-15: #f7f7f7;
+  --background: #40318d;
+  --foreground: #7869c4;
+  --cursor: #7869c4;
+  --selection: #7869c4;
+}
+
+/* Catppuccin Mocha */
+[data-theme="catppuccin-mocha"] {
+  --ansi-0: #45475a;
+  --ansi-1: #f38ba8;
+  --ansi-2: #a6e3a1;
+  --ansi-3: #f9e2af;
+  --ansi-4: #89b4fa;
+  --ansi-5: #f5c2e7;
+  --ansi-6: #94e2d5;
+  --ansi-7: #bac2de;
+  --ansi-8: #585b70;
+  --ansi-9: #f7aec2;
+  --ansi-10: #c2ecbf;
+  --ansi-11: #fcd682;
+  --ansi-12: #aeccfc;
+  --ansi-13: #f398da;
+  --ansi-14: #b1eae1;
+  --ansi-15: #a6adc8;
+  --background: #1e1e2e;
+  --foreground: #cdd6f4;
+  --cursor: #f5e0dc;
+  --selection: #f5e0dc;
+}
+
+/* Amber CRT Retro */
+[data-theme="amber-crt-retro"] {
+  --ansi-0: #2a1e00;
+  --ansi-1: #ff6a00;
+  --ansi-2: #ffb000;
+  --ansi-3: #ffc742;
+  --ansi-4: #ff8c00;
+  --ansi-5: #ffa033;
+  --ansi-6: #ffd27f;
+  --ansi-7: #ffd9a0;
+  --ansi-8: #6a4e00;
+  --ansi-9: #ff8a1e;
+  --ansi-10: #ffc742;
+  --ansi-11: #ffe08a;
+  --ansi-12: #ffab3d;
+  --ansi-13: #ffc266;
+  --ansi-14: #ffe3b0;
+  --ansi-15: #fff0d6;
+  --background: #1a1200;
+  --foreground: #ffb000;
+  --cursor: #ffb000;
+  --selection: #3a2a00;
+}
+
+/* Alabaster */
+[data-theme="alabaster"] {
+  --ansi-0: #000000;
+  --ansi-1: #aa3731;
+  --ansi-2: #448c27;
+  --ansi-3: #cb9000;
+  --ansi-4: #325cc0;
+  --ansi-5: #7a3e9d;
+  --ansi-6: #0083b2;
+  --ansi-7: #f7f7f7;
+  --ansi-8: #777777;
+  --ansi-9: #f05050;
+  --ansi-10: #60cb00;
+  --ansi-11: #ffbc5d;
+  --ansi-12: #007acc;
+  --ansi-13: #e64ce6;
+  --ansi-14: #00aacb;
+  --ansi-15: #f7f7f7;
+  --background: #f7f7f7;
+  --foreground: #000000;
+  --cursor: #007acc;
+  --selection: #bfdbfe;
+}
+
+/* Alien Blood */
+[data-theme="alien-blood"] {
+  --ansi-0: #112616;
+  --ansi-1: #7f2b27;
+  --ansi-2: #2f7e25;
+  --ansi-3: #717f24;
+  --ansi-4: #2f6a7f;
+  --ansi-5: #47587f;
+  --ansi-6: #327f77;
+  --ansi-7: #647d75;
+  --ansi-8: #3c4812;
+  --ansi-9: #e08009;
+  --ansi-10: #18e000;
+  --ansi-11: #bde000;
+  --ansi-12: #00aae0;
+  --ansi-13: #0058e0;
+  --ansi-14: #00e0c4;
+  --ansi-15: #73fa91;
+  --background: #0f1610;
+  --foreground: #637d75;
+  --cursor: #73fa91;
+  --selection: #1d4125;
 }

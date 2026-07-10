@@ -49,10 +49,34 @@ const { title } = Astro.props
     </div>
     <label>
       theme:
-      <select id="theme-select" aria-label="select color theme">
-        <option value="one-dark-two">one dark two</option>
-        <option value="gruvbox">gruvbox dark</option>
-        <option value="ayu-light">ayu light</option>
+      <select id="theme-select">
+        <optgroup label="dark">
+          <option value="one-dark-two">one dark two</option>
+          <option value="gruvbox">gruvbox dark</option>
+          <option value="homebrew">homebrew</option>
+          <option value="hopscotch">hopscotch</option>
+          <option value="ubuntu">ubuntu</option>
+          <option value="fairyfloss">fairyfloss</option>
+          <option value="fun-forrest">fun forrest</option>
+          <option value="django">django</option>
+          <option value="catppuccin-mocha">catppuccin mocha</option>
+          <option value="alien-blood">alien blood</option>
+        </optgroup>
+        <optgroup label="light">
+          <option value="alabaster">alabaster</option>
+          <option value="ayu-light">ayu light</option>
+          <option value="material">material</option>
+          <option value="frostbyte">frostbyte</option>
+          <option value="github-light-high-contrast">github light hc</option>
+        </optgroup>
+        <optgroup label="novelty">
+          <option value="hot-dog-stand">hot dog stand</option>
+          <option value="green-phosphor-crt">green phosphor crt</option>
+          <option value="amber-crt-retro">amber crt retro</option>
+
+          <!-- <option value="cga">cga</option> -->
+          <!-- <option value="c64">c64</option> -->
+        </optgroup>
       </select>
     </label>
   </nav>
