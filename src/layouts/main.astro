@@ -1,32 +1,11 @@
 ---
 import { getCollection } from 'astro:content'
+import ThemeSelect from '../components/theme-select.astro'
 import Base from './base.astro'
 
 const socials = await getCollection('socials')
 
-const logo = `
-               ##
-             ####
-           #####
-          #####
-         ####
-         ###  #
-       # ### ##
-      ## ######
-      ## ######
-     ### #####
-     ### ###
-     ### ###
-     ### ###
-     ### ##
-     ### ##
-     ### #
-     ###
-    ###
-  #####
- #####
-####
-##`
+import logo from '../assets/logo.txt?raw'
 
 const posts = await getCollection('posts', ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true
@@ -47,42 +26,11 @@ const { title } = Astro.props
       {posts.length > 0 && <a href="/ramblings">ramblings</a>}
       <a href="/contact">contact</a>
     </div>
-    <label>
-      theme:
-      <select id="theme-select">
-        <optgroup label="dark">
-          <option value="one-dark-two">one dark two</option>
-          <option value="gruvbox">gruvbox dark</option>
-          <option value="homebrew">homebrew</option>
-          <option value="hopscotch">hopscotch</option>
-          <option value="ubuntu">ubuntu</option>
-          <option value="fairyfloss">fairyfloss</option>
-          <option value="fun-forrest">fun forrest</option>
-          <option value="django">django</option>
-          <option value="catppuccin-mocha">catppuccin mocha</option>
-          <option value="alien-blood">alien blood</option>
-        </optgroup>
-        <optgroup label="light">
-          <option value="alabaster">alabaster</option>
-          <option value="ayu-light">ayu light</option>
-          <option value="material">material</option>
-          <option value="frostbyte">frostbyte</option>
-          <option value="github-light-high-contrast">github light hc</option>
-        </optgroup>
-        <optgroup label="novelty">
-          <option value="hot-dog-stand">hot dog stand</option>
-          <option value="green-phosphor-crt">green phosphor crt</option>
-          <option value="amber-crt-retro">amber crt retro</option>
-
-          <!-- <option value="cga">cga</option> -->
-          <!-- <option value="c64">c64</option> -->
-        </optgroup>
-      </select>
-    </label>
+    <ThemeSelect />
   </nav>
   <slot name="header-all">
     <header>
-      <pre aria-hidden="true">{logo}</pre>
+      <pre aria-hidden="true" set:html={logo} />
       <slot name="header" />
     </header>
   </slot>
@@ -100,19 +48,6 @@ const { title } = Astro.props
       ))}
   </footer>
 </Base>
-
-<script>
-const themeSelect = document.getElementById('theme-select')
-
-if (themeSelect instanceof HTMLSelectElement) {
-  themeSelect.value = localStorage.getItem('theme') ?? 'one-dark-two'
-
-  themeSelect.addEventListener('change', () => {
-    document.documentElement.dataset.theme = themeSelect.value
-    localStorage.setItem('theme', themeSelect.value)
-  })
-}
-</script>
 
 <style>
 pre {
@@ -136,37 +71,6 @@ pre {
     > pre {
       align-self: center;
     }
-  }
-}
-
-label {
-  font-size: 0.9em;
-  color: var(--muted);
-  position: relative;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.6ch;
-
-  select {
-    appearance: none;
-    -webkit-appearance: none;
-    font: inherit;
-    color: var(--title);
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0 1.7ch 0 0;
-    cursor: pointer;
-  }
-
-  label::after {
-    content: "▾";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--title);
-    pointer-events: none;
   }
 }
 </style>
